@@ -1,0 +1,2 @@
+import {catalog,YEARS} from '@/lib/tse';
+export async function GET(req:Request){const year=Number(new URL(req.url).searchParams.get('year')||2026);if(!YEARS.includes(year))return Response.json({error:'Ano inválido'},{status:400});try{const d=await catalog(year);return Response.json({resources:d.resources.map((r:any)=>({name:r.name,url:r.url,format:r.format})),source:`https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-${year}`})}catch{return Response.json({error:'Catálogo indisponível'},{status:502})}}
