@@ -28,6 +28,7 @@ jobs:
       - name: Consultar API e baixar bases oficiais
         run: |
           python scripts/sync-tse.py
+          python scripts/sync-candidates.py
           python scripts/check-data.py
       - uses: actions/configure-pages@v5
         id: pages
