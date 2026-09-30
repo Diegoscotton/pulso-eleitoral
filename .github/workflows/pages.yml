@@ -30,6 +30,7 @@ jobs:
           python scripts/sync-tse.py
           python scripts/sync-candidates.py
           python scripts/check-data.py
+          python scripts/sync-published-results.py
       - uses: actions/configure-pages@v5
         id: pages
       - name: Gerar dashboard estático
